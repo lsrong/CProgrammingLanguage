@@ -1,8 +1,11 @@
 # include <stdio.h>
+# include <string.h>
+
 # define Max 1000	// 最大字符数
 
 void reverseOne(char line[]);
 void reverseTwo(char line[]);
+void reverseThree(char line[]);
 int getLine(char line[], int max);
 // 编写reverse(s)函数，将字符串s中的字符颠倒过来，使用该函数，每次颠倒输入行的字符顺序
 int main()
@@ -11,7 +14,8 @@ int main()
 	char line[Max];
 	while((l = getLine(line, Max)) > 0){
 		// reverseOne(line);
-		reverseTwo(line);
+		// reverseTwo(line);
+		reverseThree(line);
 		printf("reverse line:%s\n", line);
 	}
 
@@ -69,4 +73,15 @@ void reverseTwo(char s[]){
 		++j;
 		--i;
 	}
+}
+
+/* for循环实现对调 */
+void reverseThree(char s[]){
+	int c, i, j;
+	for(i=0,j=strlen(s)-1;i < j; i++, j-- ){
+		c = s[i];
+		s[i] = s[j];
+		s[j] = c;
+ 	}
+
 }
